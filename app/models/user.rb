@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   end
   
   def send_activation_email
-    UserMailer.acount_activation(self).deliver_now
+    UserMailer.account_activation(self).deliver_now
   end
   
   def create_reset_digest

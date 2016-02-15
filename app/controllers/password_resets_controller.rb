@@ -1,6 +1,6 @@
 class PasswordResetsController < ApplicationController
-  before_action :get_user, only: [:edit, :update]
-  before_action :valid_user, only: [:edit, :update]
+  before_action :get_user,         only: [:edit, :update]
+  before_action :valid_user,       only: [:edit, :update]
   before_action :check_expiration, only: [:edit, :update]
   
   def new
@@ -11,7 +11,7 @@ class PasswordResetsController < ApplicationController
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email
-      flash[:infor] = "Email sent with password reset instructions"
+      flash[:info] = "Email sent with password reset instructions"
       redirect_to root_url
     else
       flash.now[:danger] = "Email address not found"
